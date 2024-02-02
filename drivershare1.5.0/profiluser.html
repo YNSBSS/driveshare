@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="accueilcompteuser.css">
+        <link rel="stylesheet" href="profil.css">
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+<main>
+    <div class="sidebar">
+        <div class="logo-details">
+        <div class="logo_name"> <img src="driversharegreen.png" style = " height: 40px; width: 40px;"> Drivershare</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+              <i class='bx bx-search' ></i>
+             <input type="text" placeholder="Rechercher...">
+          </li>
+          <li>
+            <a href="demandertrajet.html">
+              <i class='bx bx-home' ></i>
+              <span class="links_name"> Acceuil</span>
+            </a>
+          </li>
+          <li>
+           <a href="profiluser.html">
+             <i class='bx bx-user' ></i>
+             <span class="links_name"> Profil</span>
+           </a>
+         </li>
+         <li>
+          <a href="mestrajets.html">
+            <i class='bx bx-list-plus' ></i>
+            <span class="links_name"> Mes trajets</span>
+          </a>
+         </li>
+         <li>
+          <a href='authentification.html'>
+            <i class='bx bxs-dock-left'></i>
+            <span class="links_name" name="deconnexion" id="deconnexion">Déconnexion</span></a>
+         </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <div class="text"> Mon profil </div>
+        <form method="POST" action="">
+        <div class="profil-form">
+         <div class="group">
+            <label for="nomprenom" class="label"> Nom et prénom: </label>
+            <input type="text" class="input"  id="nomprenom" placeholder="Nom et Prénom" name="nomprenom">
+        </div>
+        <div class="group">
+            <label for="datenaiss" class="label"> Date de naissance : </label> 
+            <input type="date" class="input" id="datenaiss" placeholder="Date de naissance" name="datenaiss">
+        </div>
+        <div class="group">
+            <label for="email" class="label"> Email :</label>
+            <input type="email" class="input"  id="email" placeholder="Email" >
+        </div>
+        <div class="group">
+            <label for="numtel" class="label"> Numéro de téléphone :</label>
+            <input type="tel" class="input" id="email" placeholder="Numero tel" name="numtel">
+        </div> 
+        <div class="group">
+            <label for="mdpss" class="label"> Mot de passe :</label>
+            <input type="password" class="input" id="mdpss" placeholder="Mot de passe" >
+        </div> <br>
+        <div class="group">
+          <button type="submit" name="enregistrer">S'auvegarder </button> 
+        </div>
+         </div>
+        </form>
+    </section>
+</main>
+<br>
+
+<script src="compteuser.js"></script>  
+
+</body>
+</html>
