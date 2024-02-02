@@ -1,0 +1,39 @@
+CREATE TABLE users(
+    id INT PRIMARY KEY,
+    nom_prenom VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    numero_telephone VARCHAR(15),
+    mot_de_passe VARCHAR(50),
+    matricule BIGINT,
+    notion FLOAT CHECK (notion >= 0 AND notion <= 5), -- Colonne pour la notion (r�els entre 0 et 5)
+    code_promo BOOLEAN -- Colonne pour le code promo (bool�en)
+);
+
+CREATE TABLE chauffeur (
+    idch INT PRIMARY KEY,                -- Cl� primaire pour identifier de mani�re unique chaque chauffeur
+    nom VARCHAR(50),                   -- Colonne pour le nom
+    prenom VARCHAR(50),                -- Colonne pour le pr�nom
+    adresse VARCHAR(100),              -- Colonne pour l'adresse
+    numero_telephone VARCHAR(15),      -- Colonne pour le num�ro de t�l�phone
+    email VARCHAR(155) UNIQUE,         -- Colonne pour l'adresse e-mail (ajout de l'option UNIQUE pour assurer l'unicit�)
+    nom_voiture VARCHAR(100),          -- Colonne pour le nom de la voiture
+    matricule_voiture BIGINT,          -- Colonne pour le matricule de la voiture (entier)
+    numero_assurance_nationale VARCHAR(20), -- Colonne pour le num�ro d'assurance nationale
+    notion FLOAT CHECK (notion >= 0 AND notion <= 5), -- Colonne pour la notion (r�els entre 0 et 5)
+    numero_carte_nationale BIGINT      -- Colonne pour le num�ro de carte nationale (entier de 14 chiffres)
+);
+
+
+CREATE TABLE course (
+    id INT PRIMARY KEY,                -- Cl� primaire de la table "course"
+    id_user INT,                       -- Cl� �trang�re vers la table "user"
+    id_chauffeur INT,                  -- Cl� �trang�re vers la table "chauffeur"
+    id_course INT,                     -- Identifiant de la course
+    duree TIME,                       -- Temps de la course (au format TIME)
+    depart VARCHAR(155),               -- Lieu de d�part
+    arrivee VARCHAR(155),              -- Lieu d'arriv�e
+    prix DECIMAL(10, 2),               -- Prix de la course (utilisation de DECIMAL pour les valeurs mon�taires)
+    distance DECIMAL(10, 2),           -- Distance de la course
+    FOREIGN KEY (id_user) REFERENCES user(id),          -- Cl� �trang�re vers la table "user"
+    FOREIGN KEY (id_chauffeur) REFERENCES chauffeur(id)  -- Cl� �trang�re vers la table "chauffeur"
+);
