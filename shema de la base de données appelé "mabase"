@@ -1,0 +1,137 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : dim. 04 fév. 2024 à 00:43
+-- Version du serveur : 8.2.0
+-- Version de PHP : 8.2.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `mabase`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chauffeur`
+--
+
+DROP TABLE IF EXISTS `chauffeur`;
+CREATE TABLE IF NOT EXISTS `chauffeur` (
+  `idchauffeur` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) DEFAULT NULL,
+  `prenom` varchar(50) DEFAULT NULL,
+  `adresse` varchar(50) DEFAULT NULL,
+  `numero_telephone` varchar(15) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `mot_de_passe` varchar(25) NOT NULL,
+  `nom_voiture` varchar(50) DEFAULT NULL,
+  `matricule_voiture` bigint DEFAULT NULL,
+  `numero_assurance_nationale` varchar(20) DEFAULT NULL,
+  `notion` float DEFAULT NULL,
+  `numero_carte_nationale` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idchauffeur`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `course`
+--
+
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE IF NOT EXISTS `course` (
+  `id_course` int NOT NULL AUTO_INCREMENT,
+  `email_user` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `duree` time DEFAULT NULL,
+  `depart` varchar(50) DEFAULT NULL,
+  `arrivee` varchar(50) DEFAULT NULL,
+  `prix` decimal(10,2) DEFAULT NULL,
+  `distance` decimal(10,2) DEFAULT NULL,
+  `coursedate` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_course`),
+  KEY `email_user` (`email_user`),
+  KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `coursedemande`
+--
+
+DROP TABLE IF EXISTS `coursedemande`;
+CREATE TABLE IF NOT EXISTS `coursedemande` (
+  `id_coursedm` int NOT NULL AUTO_INCREMENT,
+  `email_user` varchar(50) DEFAULT NULL,
+  `duree` time DEFAULT NULL,
+  `depart` varchar(50) DEFAULT NULL,
+  `arrivee` varchar(50) DEFAULT NULL,
+  `prix` decimal(10,2) DEFAULT NULL,
+  `distance` decimal(10,2) DEFAULT NULL,
+  `coursedate` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_coursedm`),
+  KEY `email_user` (`email_user`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rols`
+--
+
+DROP TABLE IF EXISTS `rols`;
+CREATE TABLE IF NOT EXISTS `rols` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) DEFAULT NULL,
+  `mot_de_passe` varchar(50) DEFAULT NULL,
+  `role` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `rols`
+--
+
+INSERT INTO `rols` (`id`, `email`, `mot_de_passe`, `role`) VALUES
+(1, 'admin@gmail.com', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `nom_prenom` varchar(50) DEFAULT NULL,
+  `email_user` varchar(50) NOT NULL,
+  `numero_telephone` varchar(15) DEFAULT NULL,
+  `mot_de_passe` varchar(50) DEFAULT NULL,
+  `matricule` bigint DEFAULT NULL,
+  `notion` float DEFAULT NULL,
+  `code_promo` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`email_user`)
+) ;
+
+
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
