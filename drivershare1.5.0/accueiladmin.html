@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ajouter chauffeur</title>
+    
+        <link rel="stylesheet" href="accueiladmin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="accueilcompteuser.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+        <style>
+          #search-input {
+           padding: 8px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           width: 300px;
+           margin-left:20px;
+           }
+           
+        </style>
+
+</head>
+<body>
+<main>
+  <div class="sidebar">
+    <div class="logo-details">
+    <div class="logo_name"> <img src="driversharegreen.png" style = " height: 40px; width: 40px;"> Drivershare</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Rechercher...">
+      </li>
+      <li>
+        <a href="accueilcompteuser.html">
+          <i class='bx bx-home' ></i>
+          <span class="links_name"> Acceuil</span>
+        </a>
+      </li>
+      <li>
+       <a href="profiluser.html">
+         <i class='bx bx-user' ></i>
+         <span class="links_name"> Profil</span>
+       </a>
+     </li>
+     <li>
+      <a href="mestrajets.html">
+        <i class='bx bx-list-plus' ></i>
+        <span class="links_name"> Mes trajets</span>
+      </a>
+     </li>
+     <li>
+      <a href='authentification.html'>
+        <i class='bx bxs-dock-left'></i>
+        <span class="links_name" name="deconnexion" id="deconnexion">Déconnexion</span></a>
+     </li>
+    </ul>
+</div>
+
+    <section class="home-section">
+      <div class="text"> Bienvenue à Drivershare</div>
+      <div>
+        <label for="search-input" style='margin-left:20px;'>Rechercher :</label>
+        <input type="text" id="search-input"  placeholder="Rechercher ....">
+       </div>
+        <h2 style="margin-left:20px;"> Ajouter un chauffeur : </h2>
+      </div>
+      <form action="admin.php" method="post">
+    <div class="ajoutchauffeur-form">
+      <div class="group">
+        <label for="nomch" class="label">Nom chauffeur :</label><br>
+        <input id="nomch" type="text" class="input" name="nom">
+      </div>
+      <div class="group">
+        <label for="prenomch" class="label">Prenom chauffeur: </label><br>
+        <input id="prenomch" type="text" class="input" name="prenom">
+      </div>
+      <div class="group">
+        <label for="numtel" class="label">Numero de telephone:</label><br>
+        <input id="numtel" type="number" class="input" name="telephone" >
+      </div>
+      <div class="group">
+        <label for="numid" class="label">Numero de la carte d'identite :</label><br>
+        <input id="numid" type="number" class="input" name="num_carte" >
+      </div>
+      <div class="group">
+        <label for="numsec" class="label">Numero de securite social:</label><br>
+        <input id="numsec" type="number" class="input" name="num_ss" >
+      </div>
+      <div class="group">
+        <label for="nomve" class="label">Nom du vehicule :</label><br>
+        <input id="nomve" type="text" class="input" name="nom_v" >
+      </div>
+      <div class="group">
+        <label for="user" class="label">Email</label><br>
+        <input id="user" name="email" type="email" class="input" required name="email">
+    </div>
+      <div class="group">
+        <label for="matriculeve" class="label">Matricule du vehicule:</label><br>
+        <input id="matriculeve" type="number" class="input" name="matricule" >
+      </div>
+      <br>
+      <div class="group">
+        <button> Ajouter le chauffeur</button>
+      </div>
+     </div>
+    </form>
+     <script>
+      // Ajouter un événement de recherche pour la barre de recherche
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('keyup', function() {
+        const filter = searchInput.value.toUpperCase();
+        const table = document.querySelector('table');
+        const rows = table.querySelectorAll('tr');
+        for (let i = 0; i < rows.length; i++) {
+          const matricule = rows[i].getElementsByTagName('td')[0];
+          const nomPrenom = rows[i].getElementsByTagName('td')[1];
+      
+          if (matricule || nomPrenom) {
+            const matriculeValue = matricule.textContent.toUpperCase();
+            const nomPrenomValue = nomPrenom.textContent.toUpperCase();
+      
+            if (matriculeValue.indexOf(filter) > -1 || nomPrenomValue.indexOf(filter) > -1) {
+              rows[i].style.display = '';
+            } else {
+              rows[i].style.display = 'none';
+            }
+          }
+        }
+      });
+      </script>
+</section>
+</main>
+<br>
+
+<script src="compteadmin.js"></script>  
+
+</body>
+</html>

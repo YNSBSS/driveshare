@@ -1,0 +1,253 @@
+/* Réinitialisation des marges et paddings */
+body, h1, h2, h3, p, ul, li, a, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles pour le header et la navigation */
+header {
+    background-color: black;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 100px; /* Ajustement de la hauteur du logo */
+    width: auto; /* Pour conserver les proportions */
+}
+
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-hide-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-hide-btn img {
+    width: 30px;
+}
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+/* Styles pour la barre de navigation */
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white; /* Couleur du texte des liens */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transition en douceur lors du survol */
+}
+
+.nav-link:hover {
+    color: #585e65; /* Couleur au survol */
+}
+
+/* Styles pour la barre de recherche */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button i {
+    font-size: 16px;
+}
+
+/* Styles pour la barre de recherche */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    background-color: #2d343b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Si vous utilisez Font Awesome pour l'icône de recherche */
+.search-form button i {
+    font-size: 16px;
+}
+/* Autres styles */
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #52575c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0e0e0f;
+}
+
+/* Styles pour le footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left,
+.footer-right {
+    width: 45%;
+}
+
+.footer-left h3,
+.footer-right h3 {
+    margin-bottom: 10px;
+}
+
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-right ul li {
+    margin-bottom: 5px;
+}
+
+.footer-right ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-right ul li a:hover {
+    color: #ccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+}
+
+
+
+/* Styles spécifiques au header */
+.header-inner {
+    background-color: #e4f7ec; /* Couleur de fond du header */
+    padding: 20px 0; /* Espacement intérieur du header */
+}
+
+.container {
+    max-width: 1200px; /* Largeur maximale du container */
+    margin: 0 auto; /* Centrer le container */
+    padding: 0 20px; /* Espacement intérieur du container */
+}
+
+.grid {
+    display: flex; /* Utilisation de flexbox pour la mise en page */
+    align-items: center; /* Alignement vertical des éléments */
+}
+
+.header-inner-left {
+    flex: 1; /* Prend autant d'espace que possible */
+    text-align: left; /* Alignement du texte à gauche */
+    padding-right: 20px; /* Espacement à droite */
+}
+
+.header-inner-right {
+    flex: 1; /* Prend autant d'espace que possible */
+    text-align: right; /* Alignement de l'image à droite */
+}
+
+.header-inner img {
+    max-width: 100%; /* Image occupe la largeur maximale du conteneur */
+    height: auto; /* Hauteur ajustée automatiquement */
+}
+
+/* Styles pour le texte */
+h1 {
+    font-size: 2em; /* Taille de la police pour le titre */
+    margin-bottom: 10px; /* Espacement en bas du titre */
+}
+
+.text-md {
+    font-size: 1.2em; /* Taille de la police pour le paragraphe */
+    margin-bottom: 20px; /* Espacement en bas du paragraphe */
+}
+
+.btn-group {
+    margin-top: 10px; /* Espacement en haut du groupe de boutons */
+}
+
+.btn {
+    display: inline-block; /* Afficher les boutons en ligne */
+    padding: 10px 40px; /* Espacement interne des boutons */
+    margin-right: 10px; /* Marge à droite entre les boutons */
+    text-decoration: none; /* Enlever soulignement des liens */
+    border-radius: 20px; /* Bord arrondi des boutons */
+    font-weight: bold; /* Police en gras */
+}
+
+.btn-white {
+    color: #333; /* Couleur du texte du bouton blanc */
+    background-color: #fff; /* Couleur de fond du bouton blanc */
+}
+
+.btn-light-blue {
+    color: #fff; /* Couleur du texte du bouton bleu clair */
+    background-color: #586877; /* Couleur de fond du bouton bleu clair */
+}

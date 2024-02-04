@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirme trajet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="accueilcompteuser.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+  body{
+    background-color:green ;
+  }
+  button{
+    background-color:wheat;
+    color: green;
+  }
+  div{
+    display: inline-block;
+  justify-content: center; 
+  align-items: center;
+  align-content: center;
+  }
+  #formm{
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div id="formm" >
+    <form id="formmm" action="demandercourse.php" method="post">
+    <input type="text" name="depart"  id="depart">
+    <input type="text" name="arrive"  id="arrive">
+    <input type="text" name="distance"  id="distance">
+    <input type="text"  name="price" id="price">
+    <input type="text" name="currentDate"  id="currentDate">
+    <input type="text" name="duree"  id="duree">
+  </form>
+  </div>
+    <script>
+      var currentDate
+        // Function to retrieve URL parameters
+        function getUrlParams() {
+          var params = {};
+          var queryString = window.location.search.substring(1);
+          var pairs = queryString.split('&');
+          for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split('=');
+            params[pair[0]] = decodeURIComponent(pair[1]);
+          }
+          return params;
+        }
+    
+        // Get URL parameters
+        var params = getUrlParams();
+        var distance = params.distance;
+        var depart = params.depart;
+        var arrive = params.arrive;
+    
+        // Display parameters
+        document.write('<div class="group"><h1>Voullez vous confirmez la demande?</h1>');
+        document.write('<p>from : <strong>' +  depart + '</strong> to <br> <strong>'+ arrive+'</strong></p>');
+        document.write('<p>whith total price: ' + calculatePrice(distance) + 'DA .</p>');
+        document.write('<button type="button" id="btnconfirmer" onclick="confirmerphp()">confirmer la demande</button>   ');
+        document.write('<button type="button" id="btnannuler" onclick="window.history.back();">annuler</button><br></div>');
+
+
+
+
+        function calculatePrice(distance){
+            if(distance<3000){return 250;}
+            else{return (distance/1000)*40;}
+        }
+        function confirmerphp(){
+          currentDate = new Date();
+         currentDate = currentDate.toLocaleString(); // Localized date and time (e.g., "2/28/2024, 12:00:00 PM")
+         var price=calculatePrice(distance);
+         var duree=(distance/200);
+         document.getElementById('depart').value=depart;
+         document.getElementById('arrive').value=arrive;
+         document.getElementById('distance').value=distance;
+         document.getElementById('price').value=price;
+         document.getElementById('currentDate').value=currentDate;
+         document.getElementById('duree').value=duree;
+         document.getElementById('formmm').submit();
+         /*var data={
+          arrive,
+          depart,
+          currentDate,
+          distance,
+          price,
+          duree
+         };
+         $.ajax({
+    type: 'POST',
+    url: 'demandercourse.php',
+    data: data,
+    success: function(response) {
+        console.log('Data sent successfully');
+        console.log('Response from PHP:', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error sending data to PHP:', error);
+    }
+});*/
+//window.location.href = 'demandercourse.php';
+        }
+        
+      </script>
+</body>
+</html>
